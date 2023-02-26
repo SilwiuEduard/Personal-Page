@@ -1,0 +1,599 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+.backdrop {
+  display: none;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  z-index: 149;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.2s linear;
+}
+
+/* dimensionare div-uri principale - PHONE */
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 15rem auto;
+  grid-template-rows: 5rem 19rem 9rem auto;
+  height: 100%;
+}
+
+.main-wrapper {
+  /* margin: 0 auto; */
+  display: inline-block;
+  grid-area: 1 / 1 / 3 / 3; /* grid-row-start / grid-column-start / grid-row-end / grid-columm-end */
+}
+
+.main-description {
+  grid-area: 3 / 1 / 4 / 3;
+}
+
+.main-footer {
+  grid-area: 4 / 1 / 5 / 3; /* grid-row-start / grid-column-start / grid-row-end / grid-columm-end */
+  background-color: #fffbf5;
+}
+
+/* END dimensionare div-uri principale - PHONE */
+
+/* Main Header PHONE */
+.main-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fffbf5;
+  padding: 0.5rem 1rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  flex-direction: row-reverse;
+}
+
+.main-header__brand {
+  text-decoration: none;
+  position: absolute;
+  width: 67px;
+  height: 67px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.main-header__brand img {
+  height: 4rem;
+  margin: 0;
+}
+
+.main-header__brand:hover,
+.main-header__brand:active {
+  animation: push-up 1s ease-out forwards;
+}
+
+@keyframes push-up {
+  0% {
+    transform: translateY(0);
+  }
+
+  33% {
+    transform: translateY(-0.3rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.main-nav {
+  display: none;
+}
+
+.main-nav__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.main-nav__item {
+  margin: 0 1rem;
+  z-index: 2;
+}
+
+.main-nav__item a,
+.mobile-nav__item a {
+  text-decoration: none;
+  color: #473c33;
+  font-weight: bold;
+  padding: 0.2rem 0;
+}
+
+.main-nav__item a:hover,
+.main-nav__item a:active {
+  color: #fc7300;
+}
+
+.toggle-button {
+  width: 3rem;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.toggle-button:focus {
+  outline: none;
+}
+
+.toggle-button__bar {
+  width: 100%;
+  height: 0.2rem;
+  background: #473c33;
+  display: block;
+  margin: 0.6rem 0;
+}
+
+.mobile-nav {
+  transform: translateX(100%);
+  position: fixed;
+  z-index: 160;
+  top: 0;
+  right: 0;
+  background: white;
+  width: 80%;
+  height: 100vh;
+  transition: transform 300ms ease-out;
+  /* display: grid;
+  grid-template-columns: 5rem fit-content(14rem);
+  grid-template-rows: 5rem 5rem 5rem; */
+}
+
+.mobile-nav__items {
+  width: 50%;
+  height: 100%;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.class1 {
+  height: 30rem;
+}
+
+.mobile-nav__item {
+  margin: 1rem 0;
+  z-index: 201;
+}
+
+.mobile-nav__item a {
+  font-size: 1.5rem;
+}
+
+.mobile-nav__item a:hover,
+.mobile-nav__item a:active {
+  color: #fc7300;
+}
+
+.open {
+  display: grid;
+  opacity: 1; /* !important */
+  transform: translateX(0); /* !important */
+}
+
+/* Dropdown list - PHONE */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  /* background-color: #4caf50; */
+  /* color: white; */
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fffbf5;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #473c33;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown__mobile {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn__mobile {
+  /* background-color: #4caf50; */
+  /* color: white; */
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content__mobile {
+  display: none;
+  position: absolute;
+  right: 7rem;
+  background-color: #fffbf5;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content__mobile a {
+  color: #473c33;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content__mobile a:hover {
+  background-color: #f1f1f1;
+}
+
+/* .dropdown__mobile:hover .dropdown-content__mobile {
+  display: block;
+} */
+
+.dropdown-content__mobile closed a:hover {
+  background-color: pink;
+}
+
+/* END Downdown list - PHONE */
+
+/* END Main Header - PHONE */
+
+/* Main Wrapper - PHONE */
+.main-head__myphoto {
+  position: relative;
+  display: inline-block;
+  left: -4rem;
+  top: 3rem;
+  width: 19rem;
+  height: 19rem;
+}
+
+.main-head__myphoto-background {
+  position: relative;
+  display: inline-block;
+  background-color: #fc7300;
+  height: 30rem;
+  width: 13rem;
+  z-index: 99;
+  border-radius: 0.2rem;
+  transform: rotateZ(-26deg);
+  bottom: 30.7rem;
+  left: -4.6rem;
+}
+
+/* Card */
+
+.box16 {
+  text-align: center;
+  color: #d61355;
+  position: relative;
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+  z-index: 101;
+}
+.box16 .box-content,
+.box16:after {
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+.box16:after {
+  content: "";
+  height: 100%;
+  /* background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0.08) 69%,
+      rgba(0, 0, 0, 0.76) 100%
+    ); */
+  top: 0;
+  transition: all 0.5s ease 0s;
+}
+.box16 .post,
+.box16 .title {
+  transform: translateY(145px);
+  transition: all 0.4s cubic-bezier(0.13, 0.62, 0.81, 0.91) 0s;
+}
+/* .box16:hover:after {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.01) 0,
+    rgba(0, 0, 0, 0.09) 11%,
+    rgba(0, 0, 0, 0.12) 13%,
+    rgba(0, 0, 0, 0.19) 20%,
+    rgba(0, 0, 0, 0.29) 28%,
+    rgba(0, 0, 0, 0.29) 29%,
+    rgba(0, 0, 0, 0.42) 38%,
+    rgba(0, 0, 0, 0.46) 43%,
+    rgba(0, 0, 0, 0.53) 47%,
+    rgba(0, 0, 0, 0.75) 69%,
+    rgba(0, 0, 0, 0.87) 84%,
+    rgba(0, 0, 0, 0.98) 99%,
+    rgba(0, 0, 0, 0.94) 100%
+  );
+} */
+.box16 img {
+  width: 100%;
+  height: auto;
+}
+.box16 .box-content {
+  padding: 20px;
+  margin-top: 300px;
+  margin-left: 60px;
+  top: 0;
+  z-index: 1;
+}
+
+.box16 .title {
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+.box16 .post {
+  display: block;
+  padding: 8px 0;
+  font-size: 15px;
+}
+.box16 .social li a,
+.box17 .icon li a {
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+}
+.box16:hover .post,
+.box16:hover .title {
+  transform: translateY(0);
+}
+.box16 .social {
+  list-style: none;
+  padding: 0 0 5px;
+  margin: 40px 0 25px;
+  opacity: 0;
+  position: relative;
+  transform: perspective(500px) rotateX(-90deg) rotateY(0) rotateZ(0);
+  transition: all 0.6s cubic-bezier(0, 0, 0.58, 1) 0s;
+}
+.box16:hover .social {
+  opacity: 1;
+  transform: perspective(500px) rotateX(0) rotateY(0) rotateZ(0);
+}
+/* .box16 .social:before {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background: #fff;
+  margin: 0 auto;
+  position: absolute;
+  top: -23px;
+  left: 0;
+  right: 0;
+} */
+.box16 .social li {
+  display: inline-block;
+}
+.box16 .social li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: #473c33;
+  margin-right: 10px;
+  transition: all 0.3s ease 0s;
+}
+.box17 .icon li,
+.box17 .icon li a {
+  display: inline-block;
+}
+.box16 .social li a:hover {
+  background: #fc7300;
+}
+.box16 .social li:last-child a {
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 990px) {
+  .box16 {
+    margin-bottom: 30px;
+  }
+}
+
+/* Card End */
+
+/* END Main Wrapper - PHONE */
+
+/* Main Description - PHONE */
+
+.main-description__title {
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 0.5rem 0;
+  font-family: "Lora", serif;
+}
+
+.main-description__plan {
+  font-size: 0.9rem;
+  text-align: center;
+  font-family: "Lora", serif;
+}
+
+/* END Main Description - PHONE */
+
+/* MAX WIDTH 40 REM - PHONE */
+
+@media (max-width: 40rem) {
+  .social {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box16 .box-content {
+    padding: 20px;
+    margin-top: 0px;
+    margin-left: 300px;
+    top: 0;
+    z-index: 1;
+  }
+
+  .social li {
+    margin: 5px 0 5px;
+  }
+
+  .box16 .social {
+    /* list-style: none;
+    padding: 0 0 5px;
+    margin: 40px 0 25px;
+    opacity: 0;
+    position: relative; */
+    transform: perspective(500px) rotateX(-90deg) rotateY(0) rotateZ(0);
+    transition: all 0.6s cubic-bezier(0, 0, 0.58, 1) 0s;
+  }
+}
+/* END MAX WIDTH 40 REM - PHONE */
+
+/* LAPTOP SIZE */
+@media (min-width: 40rem) {
+  /* dimensionare div-uri principale */
+  body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 27rem auto;
+    grid-template-rows: 5rem 30rem auto;
+    height: 100%;
+  }
+
+  .main-wrapper {
+    /* margin: 0 auto; */
+    display: inline-block;
+    grid-area: 1 / 1 / 3 / 2; /* grid-row-start / grid-column-start / grid-row-end / grid-columm-end */
+  }
+
+  .main-description {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+
+  .main-footer {
+    grid-area: 3 / 1 / 4 / 3; /* grid-row-start / grid-column-start / grid-row-end / grid-columm-end */
+    background-color: #fffbf5;
+  }
+  /* END dimensionare div-uri principale */
+
+  /* Main Header - LAPTOP */
+  .main-nav {
+    display: flex;
+    margin-left: 4rem;
+  }
+
+  .toggle-button {
+    display: none;
+  }
+
+  /* END Main Header - LAPTOP */
+
+  /* Main Wrapper - LAPTOP */
+  .main-head__myphoto {
+    position: relative;
+    /* display: inline-block; */
+    z-index: 100;
+    top: 9rem;
+    left: 5rem;
+    width: 350px;
+  }
+
+  .main-head__myphoto-background {
+    position: relative;
+    display: inline-block;
+    background-color: #fc7300;
+    height: 50rem;
+    width: 15.2rem;
+    z-index: 99;
+    border-radius: 0.2rem;
+    transform: rotateZ(-26deg);
+    left: 0.7rem;
+    bottom: 39.5rem;
+  }
+
+  /* .main-head__myphoto img {
+    max-width: 100%; 
+    height: 25rem; 
+    height: auto;
+    max-width: 100%;
+  } */
+
+  /* .box16 .box-content {
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 60px;
+    top: 0;
+    z-index: 1;
+  } */
+
+  /* END Main Wrapper - LAPTOP */
+
+  /* Main Description - LAPTOP */
+
+  .main-description__title {
+    font-size: 5rem;
+    text-align: end;
+    margin: 3rem 7rem 1rem 10rem;
+    font-family: "Lora", serif;
+  }
+
+  .main-description__plan {
+    font-size: 1.8rem;
+    text-align: end;
+    margin-right: 7rem;
+    font-family: "Lora", serif;
+  }
+
+  /* END Main Description - LAPTOP */
+}
+
+/*END LAPTOP SIZE */
