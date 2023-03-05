@@ -24,7 +24,8 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   display: grid;
-  grid-template-columns: 15rem auto;
+  grid-template-columns: auto auto;
+  /* grid-template-columns: 15rem auto; */
   grid-template-rows: 5rem 19rem 10rem auto;
   height: 100%;
   overflow-y: hidden;
@@ -38,12 +39,14 @@ body {
 }
 
 .main-description {
-  grid-area: 3 / 1 / 4 / 3;
+  grid-area: 3 / 1 / 4 / 4;
+  margin: 0;
 }
 
 .main-footer {
   grid-area: 4 / 1 / 5 / 3; /* grid-row-start / grid-column-start / grid-row-end / grid-columm-end */
   background-color: #fffbf5;
+  margin: 0;
 }
 
 /* END dimensionare div-uri principale - PHONE */
@@ -261,6 +264,10 @@ body {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+}
+
+.dropdown-content__mobile--block {
+  display: block;
 }
 
 .dropdown-content__mobile a {
