@@ -34,5 +34,6 @@ toggleButton.addEventListener("click", function () {
 });
 
 portofolio.addEventListener("click", function () {
-  dropdownContentMobile.style.display = "block";
+  dropdownContentMobile.classList.toggle("dropdown-content__mobile--block");
 });
+
